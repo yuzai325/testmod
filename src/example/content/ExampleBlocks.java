@@ -48,18 +48,6 @@ public class ExampleBlocks implements ContentList {
             limitRange();
         }};
         
-        icore = new CoreBlock("icore"){{
-            requirements(Category.effect, BuildVisibility.shown, with(Items.copper, 0));
-
-            unitType = UnitTypes.gamma;
-            health = 1;
-            itemCapacity = 20000;
-            size = 6;
-
-            unitCapModifier = 25;
-            alwaysUnlocked = true;
-        }};
-        
         disposableBattery = new DisposableBattery("disposable-battery"){{
 			requirements(Category.power, BuildVisibility.shown, with(Items.titanium, 20, Items.lead, 40, Items.silicon, 20));
 			size = 2;
