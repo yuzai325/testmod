@@ -4,6 +4,7 @@ import mindustry.content.Bullets;
 import mindustry.content.Fx;
 import mindustry.content.Items;
 import mindustry.content.UnitTypes;
+import mindustry.core.*;
 import mindustry.ctype.ContentList;
 import mindustry.gen.Sounds;
 import mindustry.type.Category;
@@ -16,12 +17,17 @@ import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.blocks.defense.turrets.Turret;
 import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.meta.BuildVisibility;
+import mindustry.world.Tile;
+import mindustry.world.Tiles;
+import mindustry.game.Team;
+import mindustry.Vars;
 import example.ap.*;
 
+import static mindustry.Vars.*;
 import static mindustry.type.ItemStack.with;
 
 public class ExampleBlocks implements ContentList {
-    public static Block turretPoop, icore, disposableBattery;
+    public static Block turretPoop, disposableBattery, icore;
 
     @Override
     public void load() {
@@ -53,6 +59,14 @@ public class ExampleBlocks implements ContentList {
 			size = 2;
 			consumption = 8;
 			consumes.powerBuffered(45000f);
+			alwaysUnlocked = true;
+		}};
+		
+		icore = new ICoreBlock("icore"){{
+			requirements(Category.effect, BuildVisibility.shown, with(Items.copper, 0));
+			size = 6;
+			itemCapacity = 30000;
+			health = 1;
 			alwaysUnlocked = true;
 		}};
     }
