@@ -1,1 +1,1 @@
-require("icore");
+//require("icore");
